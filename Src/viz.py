@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 def add_basic_returns(df: pd.DataFrame) -> pd.DataFrame:
-    price = df['Adj Close'].copy()
+    price = df['Close'].copy()
     df['Daily Return'] = price.pct_change()
     df['Log Return'] = np.log(price / price.shift(1))
     return df
