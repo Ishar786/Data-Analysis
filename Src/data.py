@@ -11,7 +11,7 @@ def get_stock_data(ticker_symbol: str, period: str = "1y", interval: str = "1d")
     if isinstance(df.columns, pd.MultiIndex):
         df.columns = [col[0] for col in df.columns]
     df.index = pd.to_datetime(df.index)
-    df = df.sort_index(ascending=False).tz_localize(None)
+    df = df.sort_index(ascending=True).tz_localize(None)
     if "Close" not in df.columns:
         df["Close"] = df["Close"]
     return df
